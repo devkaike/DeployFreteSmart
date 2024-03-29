@@ -35,7 +35,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("deletar/{id}")
-    public Optional<ClienteModel> excluirCliente (@PathVariable Integer id) {
+    public Optional<ClienteModel> excluirCliente (@PathVariable Long id) {
         Optional<ClienteModel> cliente = clienteInteface.findById(id);
         clienteInteface.deleteById(id);
         return cliente;

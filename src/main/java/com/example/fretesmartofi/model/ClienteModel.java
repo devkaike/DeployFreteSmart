@@ -9,7 +9,7 @@ public class ClienteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome", length = 200, nullable = false)
     private String nome;
@@ -35,11 +35,11 @@ public class ClienteModel {
     @Column(name = "telefone", length = 15, nullable = false)
     private String telefone;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
