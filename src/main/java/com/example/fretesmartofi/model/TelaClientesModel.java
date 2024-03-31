@@ -1,11 +1,17 @@
 package com.example.fretesmartofi.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "tela_clientes")
+@Data // Lombok: Gera automaticamente os métodos getter, setter, equals, hashCode e toString.
+@NoArgsConstructor // Lombok: Gera um construtor padrão sem argumentos.
+@AllArgsConstructor // Lombok: Gera um construtor que inclui todos os campos da classe como argumentos.
 public class TelaClientesModel {
 
     @Id
@@ -38,76 +44,4 @@ public class TelaClientesModel {
 
     @Column(name = "valor", length = 20, nullable = false)
     private String valor;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPartida() {
-        return partida;
-    }
-
-    public void setPartida(String partida) {
-        this.partida = partida;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    public Date getData_partida() {
-        return data_partida;
-    }
-
-    public void setData_partida(Date data_partida) {
-        this.data_partida = data_partida;
-    }
-
-    public Date getData_chegada() {
-        return data_chegada;
-    }
-
-    public void setData_chegada(Date data_chegada) {
-        this.data_chegada = data_chegada;
-    }
-
-    public String getProduto() {
-        return produto;
-    }
-
-    public void setProduto(String produto) {
-        this.produto = produto;
-    }
-
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
-    }
-
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
 }
