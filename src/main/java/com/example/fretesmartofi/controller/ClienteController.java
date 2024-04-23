@@ -12,7 +12,7 @@ import java.util.Optional;
 @CrossOrigin("127.0.0.1:5500")
 @RequestMapping("/clientes")
 public class ClienteController {
-
+    private String deuCerto = "deuCerto";
     @Autowired
     private ICliente clienteInteface;
 
