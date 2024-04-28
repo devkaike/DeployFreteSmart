@@ -3,6 +3,7 @@ package com.example.fretesmartofi.controller;
 
 import com.example.fretesmartofi.model.MotoristaModel;
 import com.example.fretesmartofi.repository.IMotorista;
+import com.example.fretesmartofi.service.MotoristaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,30 +16,26 @@ import java.util.Optional;
 public class MotoristaController {
 
     @Autowired
-    private IMotorista motoristaInterface;
+    private MotoristaService motoristaService;
 
     @GetMapping("/listar")
     public List<MotoristaModel> listaMotoristas() {
-        return (List<MotoristaModel>) motoristaInterface.findAll();
+        return (List<MotoristaModel>) motoristaService.getAllMotorista();
     }
 
     @CrossOrigin("http://127.0.0.1:5500")
     @PostMapping("/cadastrar")
     public MotoristaModel criarMotorista(@RequestBody MotoristaModel motoristaModel) {
-        MotoristaModel novoMotorista = motoristaInterface.save(motoristaModel);
-        return novoMotorista;
+        return motoristaService.insertMotorista(motoristaModel);
     }
 
     @PutMapping("/editar")
     public MotoristaModel editarMotorista(@RequestBody MotoristaModel motoristaModel) {
-        MotoristaModel novoMotorista = motoristaInterface.save(motoristaModel);
-        return novoMotorista;
+        return motoristaService.updateMotorista(motoristaModel);
     }
 
     @DeleteMapping("/deletar/{id}")
-    public Optional<MotoristaModel> excluirMotorista (@PathVariable Long id) {
-        Optional<MotoristaModel> motorista = motoristaInterface.findById(id);
-        motoristaInterface.deleteById(id);
-        return motorista;
+    public void excluirMotorista (@PathVariable Long id) {
+        motoristaService.deleteMotorista(id);
     }
 }
