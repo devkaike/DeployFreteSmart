@@ -1,39 +1,31 @@
 package com.example.fretesmartofi.service;
 
-import com.example.fretesmartofi.dao.MotoristaDao;
-import com.example.fretesmartofi.model.MotoristaModel;
+import com.example.fretesmartofi.model.Motorista;
+import com.example.fretesmartofi.repository.MotoristaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MotoristaService {
     @Autowired
-    private MotoristaDao motoristaDao;
+    private MotoristaRepository motoristaRepository;
 
-    //buscar todos os motoristas
-    public List<MotoristaModel> getAllMotorista(){
-        return (List<MotoristaModel>) motoristaDao.findAll();
+    public List<Motorista> getAllMotoristas() {
+        return motoristaRepository.findAll();
     }
 
-    // add um novo motorista
-    public MotoristaModel insertMotorista(MotoristaModel motoristaModel){
-        return motoristaDao.save(motoristaModel);
+    public Optional<Motorista> getMotoristaById(Long id) {
+        return motoristaRepository.findById(id);
     }
 
-    // atualizar motorista
-    public MotoristaModel updateMotorista(MotoristaModel motoristaModel){
-        return motoristaDao.save(motoristaModel);
+    public Motorista saveMotorista(Motorista motorista) {
+        return motoristaRepository.save(motorista);
     }
 
-    // deletar motorista
-    public void deleteMotorista(Long id){
-        motoristaDao.deleteById(id);
-    }
-
-    // buscar pelo nome do motorista
-    public List<MotoristaModel> getByNomeMotorista(String nome){
-        return (List<MotoristaModel>) motoristaDao.buscarPorNome(nome);
+    public void deleteMotorista(Long id) {
+        motoristaRepository.deleteById(id);
     }
 }

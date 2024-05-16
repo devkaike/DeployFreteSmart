@@ -1,8 +1,6 @@
 package com.example.fretesmartofi.controller;
 
-
-import com.example.fretesmartofi.model.MotoristaModel;
-import com.example.fretesmartofi.repository.IMotorista;
+import com.example.fretesmartofi.model.Motorista;
 import com.example.fretesmartofi.service.MotoristaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,31 +9,34 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("127.0.0.1:5500")
 @RequestMapping("/motoristas")
 public class MotoristaController {
-
     @Autowired
     private MotoristaService motoristaService;
 
-    @GetMapping("/listar")
-    public List<MotoristaModel> listaMotoristas() {
-        return (List<MotoristaModel>) motoristaService.getAllMotorista();
+    @GetMapping
+    public List<Motorista> getAllClientes() {
+        return motoristaService.getAllMotoristas();
     }
 
-    @CrossOrigin("http://127.0.0.1:5500")
-    @PostMapping("/cadastrar")
-    public MotoristaModel criarMotorista(@RequestBody MotoristaModel motoristaModel) {
-        return motoristaService.insertMotorista(motoristaModel);
+    @GetMapping("/{id}")
+    public Optional<Motorista> getMotoristaById(@PathVariable Long id) {
+        return motoristaService.getMotoristaById(id);
     }
 
-    @PutMapping("/editar")
-    public MotoristaModel editarMotorista(@RequestBody MotoristaModel motoristaModel) {
-        return motoristaService.updateMotorista(motoristaModel);
+    @PostMapping
+    public Motorista createMotorista(@RequestBody Motorista motorista) {
+        return motoristaService.saveMotorista(motorista);
     }
 
-    @DeleteMapping("/deletar/{id}")
-    public void excluirMotorista (@PathVariable Long id) {
+    @PutMapping("/{id}")
+    public Motorista updateMotorista(@PathVariable Long id, @RequestBody Motorista motorista) {
+        motorista.setId(id);
+        return motoristaService.saveMotorista(motorista);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMotorista(@PathVariable Long id) {
         motoristaService.deleteMotorista(id);
     }
 }
