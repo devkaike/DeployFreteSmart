@@ -18,8 +18,6 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @Autowired
-    private UsuarioService usuarioService;
 
     @GetMapping
     public List<Cliente> getAllClientes() {
