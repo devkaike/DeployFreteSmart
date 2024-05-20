@@ -24,6 +24,7 @@ public class Cliente {
     @NotBlank
     @Column(name = "sobrenome", length = 200, nullable = false)
     private String sobrenome;
+
     @NotBlank
     @Column(name = "cpf", length = 14, nullable = false, unique = true)
     private String cpf;
@@ -52,13 +53,9 @@ public class Cliente {
     @Column(name = "bairro", length = 100, nullable = false)
     private String bairro;
 
-    @NotBlank
-    @Column(name = "cidade", length = 100, nullable = false)
-    private String cidade;
-
-    @NotBlank
-    @Column(name = "estado", length = 2, nullable = false)
-    private String estado;
+    @ManyToOne
+    @JoinColumn(name = "cidade_id")
+    private Cidade cidade;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "usuario_id", nullable = false)

@@ -31,11 +31,8 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente) {
-        try {
-            return ResponseEntity.ok(clienteService.saveCliente(cliente));
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().build();
-        }
+        Cliente savedCliente = clienteService.saveCliente(cliente);
+        return ResponseEntity.ok(savedCliente);
     }
 
     @PutMapping("/{id}")
