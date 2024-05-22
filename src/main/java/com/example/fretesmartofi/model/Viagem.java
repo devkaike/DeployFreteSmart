@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "Viagens")
@@ -18,6 +17,7 @@ public class Viagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String destino;
     private LocalDateTime dataPartida;
     private LocalDateTime dataChegada;
@@ -31,8 +31,4 @@ public class Viagem {
     @ManyToOne
     @JoinColumn(name = "caminhao_id")
     private Caminhao caminhao;
-
-    @OneToMany(mappedBy = "viagem")
-    private List<Solicitacao> solicitacoes;
-
 }
