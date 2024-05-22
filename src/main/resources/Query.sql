@@ -54,19 +54,20 @@ VALUES
 ('BCD7890', '12345678910', '0BWZZZ377VT004250', 'Hyundai', '2014', 'Vermelho', 11000.0, 2, 'FRIGORIFICO', 'MT');
 
 -- Inserindo Motoristas
-INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id) 
+INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, cep, bairro, cidade_id, complemento, endereco) 
 VALUES 
-('Maria', 'Santos', '1988-04-10', '98765432100', '12345678900', 'D', '62987654321', 'maria.santos@example.com', 11);
+('Maria', 'Santos', '1988-04-10', '98765432100', '12345678900', 'D', '62987654321', 'maria.santos@example.com', 11, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123');
 
--- Inserindo Motoristas com Caminhões
-INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, caminhao_id) 
+
+INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, caminhao_id, cep, bairro, cidade_id, complemento, endereco) 
 VALUES 
-('Ana', 'Costa', '1990-07-22', '45678912302', '34567890123', 'C', '62923456789', 'ana.costa@example.com', 12, 2),
-('Pedro', 'Alves', '1975-01-30', '32165498703', '45678901234', 'E', '62934567890', 'pedro.alves@example.com', 13, 3),
-('Carla', 'Melo', '1982-03-05', '65432198704', '56789012345', 'B', '62945678901', 'carla.melo@example.com', 14, 4),
-('Lucas', 'Ferreira', '1995-08-12', '78912345605', '67890123456', 'D', '62956789012', 'lucas.ferreira@example.com', 15, 5),
-('Fernanda', 'Oliveira', '1983-09-25', '98765412306', '78901234567', 'C', '62967890123', 'fernanda.oliveira@example.com', 16, 6),
-('Rafael', 'Lima', '1978-12-10', '12378945607', '89012345678', 'E', '62978901234', 'rafael.lima@example.com', 17, 7),
-('Beatriz', 'Barros', '1992-11-17', '45612378908', '90123456789', 'B', '62989012345', 'beatriz.barros@example.com', 18, 8),
-('Tiago', 'Ribeiro', '1987-02-28', '32198765409', '01234567890', 'D', '62990123456', 'tiago.ribeiro@example.com', 19, 9);
+('Ana', 'Costa', '1990-07-22', '12345678901', '98765432101', 'C', '62912345678', 'ana.costa@example.com', 12, 2, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123'),
+('Pedro', 'Alves', '1975-01-30', '23456789012', '87654321012', 'E', '62923456789', 'pedro.alves@example.com', 13, 3, '23456-789', 'Vila Nova', 2, 'Casa 202', 'Avenida Principal, 456'),
+('Carla', 'Melo', '1982-03-05', '34567890123', '76543210987', 'B', '62934567890', 'carla.melo@example.com', 14, 4, '34567-890', 'Jardim das Flores', 3, 'Bloco B, Ap. 303', 'Rua das Palmeiras, 789'),
+('Lucas', 'Ferreira', '1995-08-12', '45678901234', '65432109876', 'D', '62945678901', 'lucas.ferreira@example.com', 15, 5, '45678-901', 'Alameda dos Sonhos', 4, 'Casa 404', 'Travessa das Estrelas, 101'),
+('Fernanda', 'Oliveira', '1983-09-25', '56789012345', '54321098765', 'C', '62956789012', 'fernanda.oliveira@example.com', 16, 6, '56789-012', 'Loteamento Feliz', 5, 'Apto 505', 'Avenida dos Girassóis, 202'),
+('Rafael', 'Lima', '1978-12-10', '67890123456', '43210987654', 'E', '62967890123', 'rafael.lima@example.com', 17, 7, '67890-123', 'Bairro Industrial', 6, 'Casa 606', 'Rua das Indústrias, 303'),
+('Beatriz', 'Barros', '1992-11-17', '78901234567', '32109876543', 'B', '62978901234', 'beatriz.barros@example.com', 18, 8, '78901-234', 'Parque Residencial', 7, 'Bloco C, Ap. 707', 'Avenida dos Ipês, 404'),
+('Tiago', 'Ribeiro', '1987-02-28', '89012345678', '21098765432', 'D', '62989012345', 'tiago.ribeiro@example.com', 19, 9, '89012-345', 'Condomínio Primavera', 8, 'Casa 808', 'Rua das Orquídeas, 505');
+
 

@@ -44,6 +44,25 @@ public class Motorista {
     @NotBlank(message = "Celular é obrigatório")
     private String celular;
 
+    @NotBlank
+    @Column(name = "cep", length = 9, nullable = false)
+    private String cep;
+
+    @NotBlank
+    @Column(name = "endereco", length = 255, nullable = false)
+    private String endereco;
+
+    @Column(name = "complemento", length = 255)
+    private String complemento;
+
+    @NotBlank
+    @Column(name = "bairro", length = 100, nullable = false)
+    private String bairro;
+
+    @ManyToOne
+    @JoinColumn(name = "cidade_id")
+    private Cidade cidade;
+
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
