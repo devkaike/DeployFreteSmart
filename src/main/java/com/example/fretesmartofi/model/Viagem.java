@@ -19,6 +19,7 @@ public class Viagem {
     private Long id;
 
     private String destino;
+    private String partida;
     private LocalDateTime dataPartida;
     private LocalDateTime dataChegada;
     private String status; // Ex: "Pendente", "Em andamento", "Concluída"
