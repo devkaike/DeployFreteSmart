@@ -71,6 +71,9 @@ public class Motorista {
     @JoinColumn(name = "caminhao_id")
     private Caminhao caminhao;
 
+    @Column(name = "ativo", length = 255)
+    private Boolean ativo;
+
     // Definição da enum TipoCnh
     public enum TipoCnh {
         A, B, C, D, E
