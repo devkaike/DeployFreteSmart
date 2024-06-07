@@ -24,4 +24,6 @@ public class Usuario {
     @Column(name = "senha", length = 100, nullable = false)
     private String senha;
 
+    private UserRole role;
+
 }
