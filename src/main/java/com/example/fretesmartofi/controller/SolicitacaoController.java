@@ -27,6 +27,11 @@ public class SolicitacaoController {
         return solicitacaoService.getSolicitacaoById(id);
     }
 
+    @GetMapping("/cliente/{clienteId}")
+    public List<Solicitacao> getSolicitacoesByClienteId(@PathVariable Long clienteId) {
+        return solicitacaoService.getSolicitacoesByClienteId(clienteId);
+    }
+
     @PostMapping
     public Solicitacao createSolicitacao(@RequestBody Solicitacao solicitacao) {
         return solicitacaoService.saveSolicitacao(solicitacao);

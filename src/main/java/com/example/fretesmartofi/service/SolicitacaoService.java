@@ -27,6 +27,10 @@ public class SolicitacaoService {
         return solicitacaoRepository.findById(id);
     }
 
+    public List<Solicitacao> getSolicitacoesByClienteId(Long clienteId) {
+        return solicitacaoRepository.findByClienteId(clienteId);
+    }
+
     public Solicitacao saveSolicitacao(Solicitacao solicitacao) {
         // Verifica se a viagem está associada e não está salva ainda
         if (solicitacao.getViagem() != null && solicitacao.getViagem().getId() == null) {
