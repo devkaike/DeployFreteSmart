@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "clientes")
 @Data
@@ -60,4 +62,17 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_cadastro", nullable = false, updatable = false)
+    private Date dataCadastro;
+
+    /**
+     * Garante que dataCadastro seja preenchido automaticamente com a data e hora atuais
+     * quando um novo cliente for salvo no banco de dados pela primeira vez.
+     */
+    @PrePersist
+    protected void onCreate() {
+        dataCadastro = new Date();
+    }
 }

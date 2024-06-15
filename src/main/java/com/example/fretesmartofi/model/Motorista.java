@@ -78,4 +78,17 @@ public class Motorista {
     public enum TipoCnh {
         A, B, C, D, E
     }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_cadastro", nullable = false, updatable = false)
+    private Date dataCadastro;
+
+    /**
+     * Garante que dataCadastro seja preenchido automaticamente com a data e hora atuais
+     * quando um novo cliente for salvo no banco de dados pela primeira vez.
+     */
+    @PrePersist
+    protected void onCreate() {
+        dataCadastro = new Date();
+    }
 }

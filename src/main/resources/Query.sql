@@ -29,15 +29,15 @@ VALUES
 ('33333333333', 'admin3@fretesmart.com', 'Carlos', 'Santos', '31987654321', 3, '33333-333', 'Savassi', '4998', 'Casa 3', 'Rua C');
 
 -- Inserindo Clientes associados aos Usuários
-INSERT INTO clientes (nome, sobrenome, cpf, celular, email, cep, endereco, complemento, bairro, cidade_id, usuario_id)
+INSERT INTO clientes (nome, sobrenome, cpf, celular, email, cep, endereco, complemento, bairro, cidade_id, usuario_id, data_cadastro)
 VALUES 
-('Ana', 'Carvalho', '45678901203', '41934567890', 'ana.carvalho@example.com', '45678-901', 'Rua do Sol, 101', 'Cobertura', 'Centro', '1156', 4),
-('Pedro', 'Ramos', '56789012304', '51945678901', 'pedro.ramos@example.com', '56789-012', 'Avenida Brasil, 202', 'Sala 1', 'Comercial', '4700', 5),
-('Luiza', 'Freitas', '67890123405', '61956789012', 'luiza.freitas@example.com', '67890-123', 'SQN 303, Bloco C', 'Apto 303', 'Asa Norte', '3456', 6),
-('Roberto', 'Souza', '78901234506', '71967890123', 'roberto.souza@example.com', '78901-234', 'Rua das Laranjeiras, 404', 'Apto 404', 'Barra', '3781', 7),
-('Fernanda', 'Lima', '89012345607', '81978901234', 'fernanda.lima@example.com', '89012-345', 'Avenida Atlântica, 505', 'Casa', 'Boa Viagem', '1245', 8),
-('Juliana', 'Costa', '90123456708', '91989012345', 'juliana.costa@example.com', '90123-456', 'Rua Amazonas, 606', 'Cobertura', 'Centro', '3022', 9),
-('Gustavo', 'Pereira', '01234567809', '51900123456', 'gustavo.pereira@example.com', '01234-567', 'Rua Rio Grande, 707', 'Apto 707', 'Cidade Baixa', '3561', 10);
+('Ana', 'Carvalho', '45678901203', '41934567890', 'ana.carvalho@example.com', '45678-901', 'Rua do Sol, 101', 'Cobertura', 'Centro', '1156', 4, '2023-05-10 14:30:00'),
+('Pedro', 'Ramos', '56789012304', '51945678901', 'pedro.ramos@example.com', '56789-012', 'Avenida Brasil, 202', 'Sala 1', 'Comercial', '4700', 5, '2023-06-15 09:20:00'),
+('Luiza', 'Freitas', '67890123405', '61956789012', 'luiza.freitas@example.com', '67890-123', 'SQN 303, Bloco C', 'Apto 303', 'Asa Norte', '3456', 6, '2023-07-22 18:45:00'),
+('Roberto', 'Souza', '78901234506', '71967890123', 'roberto.souza@example.com', '78901-234', 'Rua das Laranjeiras, 404', 'Apto 404', 'Barra', '3781', 7, '2023-08-05 11:15:00'),
+('Fernanda', 'Lima', '89012345607', '81978901234', 'fernanda.lima@example.com', '89012-345', 'Avenida Atlântica, 505', 'Casa', 'Boa Viagem', '1245', 8, '2023-09-30 16:00:00'),
+('Juliana', 'Costa', '90123456708', '91989012345', 'juliana.costa@example.com', '90123-456', 'Rua Amazonas, 606', 'Cobertura', 'Centro', '3022', 9, '2023-10-10 13:25:00'),
+('Gustavo', 'Pereira', '01234567809', '51900123456', 'gustavo.pereira@example.com', '01234-567', 'Rua Rio Grande, 707', 'Apto 707', 'Cidade Baixa', '3561', 10, '2023-11-20 08:10:00');
 
 -- Inserindo Caminhões
 INSERT INTO caminhoes (placa, renavam, chassis, marca, ano, cor, peso_maximo_carga, quantidade_eixos, tipo_carroceria, uf_placa) 
@@ -54,19 +54,17 @@ VALUES
 ('BCD7890', '12345678910', '0BWZZZ377VT004250', 'Hyundai', '2014', 'Vermelho', 11000.0, 2, 'FRIGORIFICO', 'MT');
 
 -- Inserindo Motoristas
-INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, cep, bairro, cidade_id, complemento, endereco, ativo) 
+INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, cep, bairro, cidade_id, complemento, endereco, ativo, data_cadastro) 
 VALUES 
-('Maria', 'Santos', '1988-04-10', '98765432100', '12345678900', 'D', '62987654321', 'maria.santos@example.com', 11, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123', false);
+('Maria', 'Santos', '1988-04-10', '98765432100', '12345678900', 'D', '62987654321', 'maria.santos@example.com', 11, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123', false, '2022-01-15 08:30:00');
 
-INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, caminhao_id, cep, bairro, cidade_id, complemento, endereco, ativo) 
+INSERT INTO motoristas (nome, sobrenome, data_nascimento, cpf, cnh, tipo_cnh, celular, email, usuario_id, caminhao_id, cep, bairro, cidade_id, complemento, endereco, ativo, data_cadastro) 
 VALUES 
-('Ana', 'Costa', '1990-07-22', '12345678901', '98765432101', 'C', '62912345678', 'ana.costa@example.com', 12, 2, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123', true),
-('Pedro', 'Alves', '1975-01-30', '23456789012', '87654321012', 'E', '62923456789', 'pedro.alves@example.com', 13, 3, '23456-789', 'Vila Nova', 2, 'Casa 202', 'Avenida Principal, 456', true),
-('Carla', 'Melo', '1982-03-05', '34567890123', '76543210987', 'B', '62934567890', 'carla.melo@example.com', 14, 4, '34567-890', 'Jardim das Flores', 3, 'Bloco B, Ap. 303', 'Rua das Palmeiras, 789', true),
-('Lucas', 'Ferreira', '1995-08-12', '45678901234', '65432109876', 'D', '62945678901', 'lucas.ferreira@example.com', 15, 5, '45678-901', 'Alameda dos Sonhos', 4, 'Casa 404', 'Travessa das Estrelas, 101', true),
-('Fernanda', 'Oliveira', '1983-09-25', '56789012345', '54321098765', 'C', '62956789012', 'fernanda.oliveira@example.com', 16, 6, '56789-012', 'Loteamento Feliz', 5, 'Apto 505', 'Avenida dos Girassóis, 202', true),
-('Rafael', 'Lima', '1978-12-10', '67890123456', '43210987654', 'E', '62967890123', 'rafael.lima@example.com', 17, 7, '67890-123', 'Bairro Industrial', 6, 'Casa 606', 'Rua das Indústrias, 303', true),
-('Beatriz', 'Barros', '1992-11-17', '78901234567', '32109876543', 'B', '62978901234', 'beatriz.barros@example.com', 18, 8, '78901-234', 'Parque Residencial', 7, 'Bloco C, Ap. 707', 'Avenida dos Ipês, 404', true),
-('Tiago', 'Ribeiro', '1987-02-28', '89012345678', '21098765432', 'D', '62989012345', 'tiago.ribeiro@example.com', 19, 9, '89012-345', 'Condomínio Primavera', 8, 'Casa 808', 'Rua das Orquídeas, 505', true);
-
-
+('Ana', 'Costa', '1990-07-22', '12345678901', '98765432101', 'C', '62912345678', 'ana.costa@example.com', 12, 2, '12345-678', 'Centro', 1, 'Apto 101', 'Rua das Flores, 123', true, '2023-05-15 08:30:00'),
+('Pedro', 'Alves', '1975-01-30', '23456789012', '87654321012', 'E', '62923456789', 'pedro.alves@example.com', 13, 3, '23456-789', 'Vila Nova', 2, 'Casa 202', 'Avenida Principal, 456', true, '2023-06-20 09:45:00'),
+('Carla', 'Melo', '1982-03-05', '34567890123', '76543210987', 'B', '62934567890', 'carla.melo@example.com', 14, 4, '34567-890', 'Jardim das Flores', 3, 'Bloco B, Ap. 303', 'Rua das Palmeiras, 789', true, '2023-04-18 10:15:00'),
+('Lucas', 'Ferreira', '1995-08-12', '45678901234', '65432109876', 'D', '62945678901', 'lucas.ferreira@example.com', 15, 5, '45678-901', 'Alameda dos Sonhos', 4, 'Casa 404', 'Travessa das Estrelas, 101', true, '2023-07-10 11:00:00'),
+('Fernanda', 'Oliveira', '1983-09-25', '56789012345', '54321098765', 'C', '62956789012', 'fernanda.oliveira@example.com', 16, 6, '56789-012', 'Loteamento Feliz', 5, 'Apto 505', 'Avenida dos Girassóis, 202', true, '2023-08-05 14:20:00'),
+('Rafael', 'Lima', '1978-12-10', '67890123456', '43210987654', 'E', '62967890123', 'rafael.lima@example.com', 17, 7, '67890-123', 'Bairro Industrial', 6, 'Casa 606', 'Rua das Indústrias, 303', true, '2023-09-12 15:35:00'),
+('Beatriz', 'Barros', '1992-11-17', '78901234567', '32109876543', 'B', '62978901234', 'beatriz.barros@example.com', 18, 8, '78901-234', 'Parque Residencial', 7, 'Bloco C, Ap. 707', 'Avenida dos Ipês, 404', true, '2023-10-03 16:50:00'),
+('Tiago', 'Ribeiro', '1987-02-28', '89012345678', '21098765432', 'D', '62989012345', 'tiago.ribeiro@example.com', 19, 9, '89012-345', 'Condomínio Primavera', 8, 'Casa 808', 'Rua das Orquídeas, 505', true, '2023-11-22 17:15:00');
