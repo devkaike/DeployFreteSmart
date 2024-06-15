@@ -2,8 +2,9 @@ package com.example.fretesmartofi.repository;
 
 import com.example.fretesmartofi.model.Motorista;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-@Repository
 public interface MotoristaRepository extends JpaRepository<Motorista, Long> {
+    Optional<Motorista> findByUsuarioId(Long usuarioId);
 }
+

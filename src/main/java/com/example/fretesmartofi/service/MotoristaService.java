@@ -62,4 +62,9 @@ public class MotoristaService {
     public void deleteMotorista(Long id) {
         motoristaRepository.deleteById(id);
     }
+
+    public Motorista getMotoristaByUsuarioId(Long usuarioId) {
+        return motoristaRepository.findByUsuarioId(usuarioId)
+                .orElseThrow(() -> new EntityNotFoundException("Motorista not found for user id: " + usuarioId));
+    }
 }
