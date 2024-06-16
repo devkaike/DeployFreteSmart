@@ -22,6 +22,10 @@ public class Solicitacao {
         @JoinColumn(name = "cliente_id", nullable = false)
         private Cliente cliente;
 
+        @ManyToOne
+        @JoinColumn(name = "motorista_id")
+        private Motorista motorista;
+
         @Column(name = "local_partida", nullable = false)
         private String localPartida;
 
