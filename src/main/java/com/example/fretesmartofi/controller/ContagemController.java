@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/contagem")
 public class ContagemController {
+
     @Autowired
     private ContagemService contagemService;
 
@@ -28,5 +29,20 @@ public class ContagemController {
     @GetMapping("/motoristas/ultimo-mes")
     public double porcentagemMotoristasUltimoMes() {
         return contagemService.calcularPorcentagemMotoristasUltimoMes();
+    }
+
+    @GetMapping("/faturamento/concluido")
+    public double calcularFaturamentoConcluido() {
+        return contagemService.calcularFaturamentoConcluido();
+    }
+
+    @GetMapping("/faturamento/ultimo-mes-concluido")
+    public double obterFaturamentoUltimoMesConcluido() {
+        return contagemService.obterFaturamentoUltimoMesConcluido();
+    }
+
+    @GetMapping("/faturamento/crescimento")
+    public double calcularCrescimento() {
+        return contagemService.calcularCrescimento();
     }
 }

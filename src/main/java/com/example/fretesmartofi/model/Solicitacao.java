@@ -41,9 +41,6 @@ public class Solicitacao {
         @Column(name = "data_solicitacao", nullable = false)
         private LocalDateTime dataSolicitacao;
 
-        @Column(name = "status", nullable = false)
-        private String status;
-
         @Column(name = "tipo_carga")
         private String tipoCarga;
 
@@ -58,6 +55,8 @@ public class Solicitacao {
 
         @Column(name = "metodo_pagamento")
         private String metodoPagamento;
+
+        private StatusSolicitacao status;
 
         @Column(name = "observacoes", columnDefinition = "TEXT")
         private String observacoes;
