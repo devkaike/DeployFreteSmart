@@ -1,6 +1,7 @@
 package com.example.fretesmartofi.controller;
 
 import com.example.fretesmartofi.model.Cliente;
+import com.example.fretesmartofi.model.Usuario;
 import com.example.fretesmartofi.service.ClienteService;
 import com.example.fretesmartofi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private UsuarioService usuarioService;
 
 
     @GetMapping
@@ -43,6 +46,11 @@ public class ClienteController {
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping("/usuarios/{id}")
+    public Optional<Cliente> getUsuarioById(@PathVariable Long id) {
+        return clienteService.getClienteByUsuario(id);
     }
 
     @DeleteMapping("/{id}")

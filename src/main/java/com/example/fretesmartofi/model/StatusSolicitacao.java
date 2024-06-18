@@ -4,7 +4,9 @@ public enum StatusSolicitacao {
     Pendente("Pendente"),
     Aceito("Aceito"),
     Concluido("Concluído"),
-    Cancelado("Cancelado");
+    Cancelado("Cancelado"),
+
+    Aguardando_Pagamento("Aguardando Pagamento");
 
     private String status;
 

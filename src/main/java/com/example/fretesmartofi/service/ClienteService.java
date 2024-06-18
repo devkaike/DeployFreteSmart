@@ -33,6 +33,10 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 
+    public Optional<Cliente> getClienteByUsuario(Long id){
+        return clienteRepository.findByUsuarioId(id);
+    }
+
     @Transactional
     public Cliente saveCliente(Cliente cliente) {
         // Verifica se a cidade não é nula e contém um ID válido
